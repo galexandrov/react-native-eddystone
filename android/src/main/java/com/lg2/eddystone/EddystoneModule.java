@@ -211,7 +211,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
       // handle all possible frame types
       byte frameType = serviceData[0];
       if (frameType == FRAME_TYPE_UID || frameType == FRAME_TYPE_EID) {
-        int length = 16;
+        int length = 18;
         String event = "onUIDFrame";
 
         if (frameType == FRAME_TYPE_EID) {
@@ -222,7 +222,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
         // reconstruct the beacon id from hex array
         StringBuilder builder = new StringBuilder();
         for (int i = 2; i < length; i++) {
-          builder.append(Integer.toHexString(serviceData[i] & 0xFF));
+          builder.append(String.format("%02x", serviceData[i]));
         }
 
         // create params object for javascript thread
