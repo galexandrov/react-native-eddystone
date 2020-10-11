@@ -303,11 +303,11 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
     if (!bluetoothAdapter.isEnabled()) {
       Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
       getCurrentActivity().startActivityForResult(enableBtIntent, 8123);
+    } else {
+      // start scanning
+      scanner = bluetoothAdapter.getBluetoothLeScanner();
+      scanner.startScan(filters, settings, scanCallback);
     }
-
-    // start scanning
-    scanner = bluetoothAdapter.getBluetoothLeScanner();
-    scanner.startScan(filters, settings, scanCallback);
   }
 
   /**
@@ -318,7 +318,9 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
    */
   @ReactMethod
   public void stopScanning() {
-    scanner.stopScan(scanCallback);
-    scanner = null;
+    if (scanner != null && bluetoothAdapter.isEnabled()) {
+      scanner.stopScan(scanCallback);
+      scanner = null;
+    }
   }
 }
