@@ -291,6 +291,11 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
     ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build();
 
     getCurrentActivity().requestPermissions(
+      new String[]{Manifest.permission.BLUETOOTH_ADMIN},
+      1
+    );
+    
+    getCurrentActivity().requestPermissions(
       new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
       1
     );
