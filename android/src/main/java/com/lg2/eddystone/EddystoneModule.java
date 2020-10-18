@@ -288,7 +288,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
     filters.add(serviceFilter);
     filters.add(configurationFilter);
 
-    ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build();
+    ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).setReportDelay(3000).build();
 
     getCurrentActivity().requestPermissions(
       new String[]{Manifest.permission.BLUETOOTH},
