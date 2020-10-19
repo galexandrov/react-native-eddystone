@@ -288,7 +288,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
     filters.add(serviceFilter);
     filters.add(configurationFilter);
 
-    ScanSettings settings = new new ScanSettings.Builder()
+    ScanSettings settings = new ScanSettings.Builder()
       .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
       .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
       .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
