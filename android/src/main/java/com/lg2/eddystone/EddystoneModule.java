@@ -293,7 +293,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
       .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
       .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
       .setNumOfMatches(ScanSettings.MATCH_NUM_ONE_ADVERTISEMENT)
-      .setReportDelay(0L)
+      .setReportDelay(2000)
       .build();
 
     getCurrentActivity().requestPermissions(
