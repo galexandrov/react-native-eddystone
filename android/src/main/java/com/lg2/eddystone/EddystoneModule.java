@@ -58,6 +58,14 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
   /** @property byte Empty frame type byte identifier */
   public static final byte FRAME_TYPE_EMPTY = 0x40;
 
+  public static int getScanReportDelay(){
+    final String SAMSUNG = "Samsung";
+    if(android.os.Build.MANUFACTURER.equalsIgnoreCase(SAMSUNG)){
+      return 2000;
+    }
+    return 0;
+  } 
+
   /**
    * EddystoneModule class constructor
    *
@@ -293,7 +301,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
       .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
       .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
       .setNumOfMatches(ScanSettings.MATCH_NUM_ONE_ADVERTISEMENT)
-      .setReportDelay(2000)
+      .setReportDelay(getScanReportDelay())
       .build();
 
     getCurrentActivity().requestPermissions(
