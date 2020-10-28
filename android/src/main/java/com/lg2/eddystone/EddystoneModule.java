@@ -61,7 +61,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
   public static int getScanReportDelay(){
     final String SAMSUNG = "Samsung";
     if(android.os.Build.MANUFACTURER.equalsIgnoreCase(SAMSUNG)){
-      return 5000;
+      return 2000;
     }
     return 0;
   } 
