@@ -61,7 +61,7 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
   public static int getScanReportDelay(){
     final String SAMSUNG = "Samsung";
     if(android.os.Build.MANUFACTURER.equalsIgnoreCase(SAMSUNG)){
-      return 2000;
+      return 4000;
     }
     return 0;
   } 
@@ -298,9 +298,6 @@ public class EddystoneModule extends ReactContextBaseJavaModule {
 
     ScanSettings settings = new ScanSettings.Builder()
       .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
-      .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
-      .setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
-      .setNumOfMatches(ScanSettings.MATCH_NUM_ONE_ADVERTISEMENT)
       .setReportDelay(getScanReportDelay())
       .build();
 
